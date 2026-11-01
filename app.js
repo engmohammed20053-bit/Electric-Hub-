@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
 // ============================================================
 // HELPER — render product image or emoji fallback
 // ============================================================
-function renderProductImg(p, height = "180px") {
+function renderProductImg(p, height = "190px") {
   if (p.image) {
-    return `<div class="product-img" style="height:${height};padding:0;background:#fff;">
+    return `<div class="product-img" style="height:${height};padding:12px;background:radial-gradient(circle, #0e2a5c 0%, #061226 100%);display:flex;align-items:center;justify-content:center;">
       <img src="${p.image}" alt="${p.name}"
-        style="width:100%;height:100%;object-fit:cover;border-radius:0;"
+        style="max-width:90%;max-height:90%;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(6,182,212,0.3));transition:transform .4s ease;"
         onerror="this.parentElement.innerHTML='<span style=font-size:3.5rem>${p.emoji}</span>'" />
     </div>`;
   }
@@ -223,7 +223,7 @@ function renderCartItems() {
   });
   msg += `\n💰 الإجمالي: ${total.toLocaleString()} جنيه`;
   document.getElementById("cartWhatsapp").href =
-    "https://wa.me/201006825554?text=" + encodeURIComponent(msg);
+    "https://wa.me/21032192744?text=" + encodeURIComponent(msg);
 }
 
 // ============================================================
@@ -285,7 +285,7 @@ function setupScrollEffects() {
     else backToTop.classList.remove("visible");
 
     // Active nav link based on section
-    const sections = ["home","packages","components","about","contact"];
+    const sections = ["home", "packages", "components", "about", "contact"];
     let current = "";
     sections.forEach(id => {
       const el = document.getElementById(id);
